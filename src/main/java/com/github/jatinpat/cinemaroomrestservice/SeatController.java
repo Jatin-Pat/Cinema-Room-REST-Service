@@ -16,7 +16,7 @@ public class SeatController {
     public Cinema getSeat() {return cinema;}
 
     @PostMapping("/purchase")
-    public ResponseEntity<?> postSeat(@RequestBody Seat seat) {
+    public synchronized ResponseEntity<?>  postSeat(@RequestBody Seat seat) {
         if (seat.getRow() < 1
                 || seat.getRow() > 9
                 || seat.getColumn() < 1
